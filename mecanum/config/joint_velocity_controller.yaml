@@ -1,0 +1,25 @@
+mecanum:
+
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  one_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: left_rim_one_joint
+  two_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: right_rim_two_joint
+  three_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: left_rim_three_joint
+  four_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: right_rim_four_joint
+
+  gazebo_ros_control:
+    pid_gains:
+        left_rim_one_joint:   {p: 1, i: 0.1, d: 0.1}
+        right_rim_two_joint:  {p: 1, i: 0.1, d: 0.1}
+        left_rim_three_joint: {p: 1, i: 0.1, d: 0.1}
+        right_rim_four_joint: {p: 1, i: 0.1, d: 0.1}

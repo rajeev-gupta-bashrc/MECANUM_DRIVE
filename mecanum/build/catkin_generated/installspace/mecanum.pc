@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: mecanum
+Description: Description of mecanum
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

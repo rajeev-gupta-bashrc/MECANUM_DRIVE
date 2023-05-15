@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <rosparam file="$(find mecanum)/config/joint_velocity_controller.yaml" command="load"/> 
+  
+  <node name="controller_spawner" pkg="controller_manager" 
+      type="spawner" respawn="false" output="screen" ns="/mecanum" 
+  args="joint_state_controller
+        one_joint_velocity_controller
+        two_joint_velocity_controller
+        three_joint_velocity_controller
+        four_joint_velocity_controller
+  "/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+	respawn="false" output="screen">
+    <remap from="/joint_states" to="/mecanum/joint_states" />
+  </node>
+  
+</launch>
