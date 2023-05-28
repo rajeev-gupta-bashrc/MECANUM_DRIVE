@@ -1,34 +1,49 @@
-<package format="2">
-  <name>mecanum</name>
-  <version>1.0.0</version>
-  <description>
-    <p>URDF Description package for mecanum</p>
-    <p>This package contains configuration data, 3D models and launch files
-for mecanum robot</p>
-  </description>
-  <author>TODO</author>
-  <maintainer email="TODO@email.com" />
+<?xml version="1.0"?>
+<?xml-model
+  href="http://download.ros.org/schema/package_format3.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>catkin</name>
+  <version>0.8.10</version>
+  <description>Low-level build system macros and infrastructure for ROS.</description>
+  <maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+  <maintainer email="tfoote@openrobotics.org">Tully Foote</maintainer>
   <license>BSD</license>
-  <buildtool_depend>catkin</buildtool_depend>
-  <depend>roslaunch</depend>
-  <depend>robot_state_publisher</depend>
-  <depend>rviz</depend>
-  <depend>joint_state_publisher_gui</depend>
-  <depend>gazebo</depend>
 
-  <exec_depend>joint_state_publisher</exec_depend>
+  <url type="website">http://wiki.ros.org/catkin</url>
+  <url type="bugtracker">https://github.com/ros/catkin/issues</url>
+  <url type="repository">https://github.com/ros/catkin</url>
 
-  <exec_depend>gazebo_plugins</exec_depend>
-  <exec_depend>gazebo_ros</exec_depend>
-  <exec_depend>gazebo_ros_control</exec_depend>
-  <exec_depend>xacro</exec_depend>
+  <author>Troy Straszheim</author>
+  <author>Morten Kjaergaard</author>
+  <author>Brian Gerkey</author>
+  <author>Dirk Thomas</author>
 
-  <exec_depend>controller_manager</exec_depend>
-  <exec_depend>joint_state_controller</exec_depend>
-  <exec_depend>rqt_gui</exec_depend>
-  <exec_depend>effort_controllers</exec_depend>
-  <exec_depend>velocity_controllers</exec_depend>
+  <depend condition="$ROS_PYTHON_VERSION == 2">python-argparse</depend>
+  <depend condition="$ROS_PYTHON_VERSION == 2" version_gt="0.4.3">python-catkin-pkg</depend>
+  <depend condition="$ROS_PYTHON_VERSION == 3" version_gt="0.4.3">python3-catkin-pkg</depend>
+  <depend condition="$ROS_PYTHON_VERSION == 2">python-empy</depend>
+  <depend condition="$ROS_PYTHON_VERSION == 3">python3-empy</depend>
+
+  <buildtool_depend>cmake</buildtool_depend>
+  <buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+  <buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
+
+  <buildtool_export_depend>cmake</buildtool_export_depend>
+  <buildtool_export_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_export_depend>
+
+  <build_export_depend>google-mock</build_export_depend>
+  <build_export_depend>gtest</build_export_depend>
+  <build_export_depend condition="$ROS_PYTHON_VERSION == 2">python-nose</build_export_depend>
+  <build_export_depend condition="$ROS_PYTHON_VERSION == 3">python3-nose</build_export_depend>
+
+  <test_depend condition="$ROS_PYTHON_VERSION == 2">python-mock</test_depend>
+  <test_depend condition="$ROS_PYTHON_VERSION == 3">python3-mock</test_depend>
+  <test_depend condition="$ROS_PYTHON_VERSION == 2">python-nose</test_depend>
+  <test_depend condition="$ROS_PYTHON_VERSION == 3">python3-nose</test_depend>
+
   <export>
-    <architecture_independent />
+    <rosdoc config="rosdoc.yaml"/>
+    <architecture_independent/>
   </export>
 </package>

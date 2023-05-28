@@ -381,6 +381,9 @@ _gtest_SOURCES:FILEPATH=/usr/src/gtest/src/gtest.cc
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
 
+//The directory containing a CMake configuration file for gazebo.
+gazebo_DIR:PATH=gazebo_DIR-NOTFOUND
+
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/home/rajeev-gupta/rajeev_ws/src/MECANUM_DRIVE/mecanum/build/gtest/googlemock
 

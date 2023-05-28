@@ -2,24 +2,29 @@ mecanum:
 
   joint_state_controller:
     type: joint_state_controller/JointStateController
-    publish_rate: 50  
+    publish_rate: 100 
   
   one_joint_velocity_controller:
     type: velocity_controllers/JointVelocityController
     joint: left_rim_one_joint
+    # pid: {p: 0.0005, i: 0.00001,  d: 0.000001}
   two_joint_velocity_controller:
     type: velocity_controllers/JointVelocityController
     joint: right_rim_two_joint
+    # pid: {p: 0.0005, i: 0.00001,  d: 0.000001}
   three_joint_velocity_controller:
     type: velocity_controllers/JointVelocityController
     joint: left_rim_three_joint
-  four_joint_velocity_controller:
+    # pid: {p: 0.0005, i: 0.00001,  d: 0.000001}
+  four_joint_velocity_controller:   
     type: velocity_controllers/JointVelocityController
     joint: right_rim_four_joint
+    # pid: {p: 0.0005, i: 0.00001,  d: 0.000001}
+
 
   gazebo_ros_control:
-    pid_gains:
-        left_rim_one_joint:   {p: 1, i: 0.1, d: 0.1}
-        right_rim_two_joint:  {p: 1, i: 0.1, d: 0.1}
-        left_rim_three_joint: {p: 1, i: 0.1, d: 0.1}
-        right_rim_four_joint: {p: 1, i: 0.1, d: 0.1}
+      pid_gains:
+          left_rim_one_joint:   {p: 0.1, i: 0.001, d: 0.00002}
+          right_rim_two_joint:  {p: 0.1, i: 0.001, d: 0.00002}
+          left_rim_three_joint: {p: 0.1, i: 0.001, d: 0.00002}
+          right_rim_four_joint: {p: 0.1, i: 0.001, d: 0.00002}

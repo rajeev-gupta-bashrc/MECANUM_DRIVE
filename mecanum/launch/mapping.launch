@@ -1,0 +1,30 @@
+<launch>
+  <!-- mapping -->
+  <arg name="configuration_basename" default="turtlebot3_lds_2d.lua"/>
+  <arg name="open_rviz" default="true"/>
+  <arg name="set_base_frame" default="base_footprint"/>
+  <arg name="set_odom_frame" default="odom"/>
+  <arg name="set_map_frame"  default="map"/>
+  
+  <include file="$(find mecanum)/launch/include/description.launch.xml">
+  </include>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+	respawn="false" output="screen">
+    <!-- <remap from="/joint_states" to="/mecanum/joint_states" /> -->
+    <param name="tf_prefix" value=""/>
+  </node>
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <param name="base_frame" value="$(arg set_base_frame)"/>
+    <param name="odom_frame" value="$(arg set_odom_frame)"/>
+    <param name="map_frame"  value="$(arg set_map_frame)"/>
+    <param name="scan"  value="scan"/>
+    <rosparam command="load" file="$(find mecanum)/config/gmapping_params.yaml" />
+  </node>
+  <!-- rviz -->
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find mecanum)/rviz/mapping.rviz"/>
+  </group>
+</launch>

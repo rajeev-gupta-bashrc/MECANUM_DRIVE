@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<node name="send_cmd_vel" pkg="mecanum" type="send_cmd_vel.py" output="screen"/>
+</launch>
