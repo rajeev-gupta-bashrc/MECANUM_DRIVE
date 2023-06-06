@@ -39,12 +39,13 @@ class Mecanum_Ctrl():
         self.motor_rotn = [[0.0] for i in range(4)]
         self.motor_prev_rotn = [[0.0] for i in range(4)]
         self.motor_vel = np.array([[0.0] for i in range(4)])
+        self.bot_vel = np.array([[0.0] for i in range(3)])
         # playing with sensor data
         self.last_time = rospy.Time.now()
         self.imu_offset = 0
         self.bool_imu_offset = 1
         self.motor_theta_offset = [0.0 for i in range(4)]
-        # self.motor_vel_offset = [0.0 for i in range(4)]
+        self.motor_vel_offset = [0.0 for i in range(4)]
         self.bool_motor_offset = 1
         self.bf_index = -1
         self.N_steps = 0
@@ -52,7 +53,7 @@ class Mecanum_Ctrl():
         self.y_error = 0
         self.w_error = 0
         self.is_moving = [0, 0, 0]
-        self.pose_offset = [0.000401227208097, 0.0, 0.0]
+        self.pose_offset = [0.002006136, 0.001387497, 0.0]
         self.ds_displacement = [0.0, 0.0, 0.0]
         self.cmd_vel = [0.0, 0.0, 0.0]
         # topics
@@ -141,17 +142,18 @@ class Mecanum_Ctrl():
             self.last_time = rospy.Time.now()
             for i in range(4):
                 self.motor_theta_offset[i] = position[i]
-            # for i in range(4):
-            #     self.motor_vel_offset[i] = velocity[i]
+            for i in range(4):
+                self.motor_vel_offset[i] = velocity[i]
             self.bool_motor_offset = 0
         for i in range(4):
             self.motor_rotn[i][0] = position[i] - self.motor_theta_offset[i]
             self.wheel_orient[i][1] = self.motor_rotn[i][0]
-        # for i in range(4):
-        #     self.motor_vel[i][0] = velocity[i]
-        # vel_wrt_bot = np.matmul(self.w_to_v_mat, self.motor_vel)
-        # _vx = vel_wrt_bot[0][0]
-        # _vy = vel_wrt_bot[1][0]
+        for i in range(4):
+            self.motor_vel[i][0] = velocity[i]
+        vel_wrt_bot = np.matmul(self.w_to_v_mat, self.motor_vel)
+        self.bot_vel[0][0] = (vel_wrt_bot[0][0]*math.cos(self.curr_pos[2]) - vel_wrt_bot[1][0]*math.sin(self.curr_pos[2]))
+        self.bot_vel[1][0] = (vel_wrt_bot[0][0]*math.sin(self.curr_pos[2]) + vel_wrt_bot[1][0]*math.cos(self.curr_pos[2]))
+        self.bot_vel[2][0] = vel_wrt_bot[2][0]
         dth_motor = [[self.motor_rotn[i][0] - self.motor_prev_rotn[i][0]] for i in range(4)]
         ds_wrt_bot = np.matmul(self.w_to_v_mat, dth_motor)
         self.ds_displacement[0] = (ds_wrt_bot[0][0]*math.cos(self.curr_pos[2]) - ds_wrt_bot[1][0]*math.sin(self.curr_pos[2]))
@@ -159,8 +161,9 @@ class Mecanum_Ctrl():
         self.ds_displacement[2] = ds_wrt_bot[2][0]
         for j in range(3):
             self.curr_pos[j]+=self.ds_displacement[j]
-            if self.is_moving[j]:
-                self.curr_pos[j]+=self.pose_offset[j]
+            # if self.is_moving[j]:
+            self.curr_pos[j]+=self.pose_offset[j]*self.bot_vel[j][0]
+        rospy.loginfo("bot vel wrt gnd: %f, %f, %f", self.bot_vel[0], self.bot_vel[1], self.bot_vel[2])
         self.N_steps+=1
         self.PoseErrorCalc()
         # rospy.loginfo('POSE: %f, %f, %f:', self.curr_pos[0], self.curr_pos[1], self.curr_pos[2])
