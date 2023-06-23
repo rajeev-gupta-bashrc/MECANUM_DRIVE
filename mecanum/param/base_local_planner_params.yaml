@@ -2,10 +2,10 @@ TrajectoryPlannerROS:
 
 # Robot Configuration Parameters
   max_vel_x: 2
-  min_vel_x: 0.08
+  min_vel_x: 0.5
 
   max_vel_y: 2
-  min_vel_y: 0.08
+  min_vel_y: 0.5
 
   max_vel_theta:  3.0
   min_vel_theta: -3.0
@@ -22,8 +22,15 @@ TrajectoryPlannerROS:
 # omni robot configuration
   holonomic_robot: true
 
+# The strafing velocities that a holonomic robot will consider in meters/sec
+  y_vels:  [-2.0, -0.5, 0.5, 2.0]
+
 # Forward Simulation Parameters
   sim_time: 0.8
   vx_samples: 18
+  vy_samples: 18
   vtheta_samples: 20
   sim_granularity: 0.05
+
+# Trajectory Scoring Parameters
+  meter_scoring: true
