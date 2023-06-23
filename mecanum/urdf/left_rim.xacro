@@ -39,7 +39,7 @@
 			<child link="left_rim_${name}_link" />
 			<axis xyz="0 1 0"/>
 			<origin xyz="${xyz}" rpy="${rpy}"/>
-      <limit effort="8" velocity="10"/>
+      <limit effort="8" velocity="$(arg _maxVel)"/>
 		</joint>
         
 	 <link
@@ -94,12 +94,9 @@
       link="${name}_s1" />
     <axis
       xyz="0 1 0" />
-    <!-- <limit
-      effort="100"
-      velocity="100" />
-    <dynamics
-      damping="0.1"
-      friction="0.1" /> -->
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
   </joint>
   <link
     name="${name}_s2">
@@ -153,12 +150,9 @@
       link="${name}_s2" />
     <axis
       xyz="0 1 0" />
-    <!-- <limit
-      effort="100"
-      velocity="100" />
-    <dynamics
-      damping="0.1"
-      friction="0.1" /> -->
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
   </joint>
   <link
     name="${name}_s3">
@@ -212,12 +206,9 @@
       link="${name}_s3" />
     <axis
       xyz="0 1 0" />
-    <!-- <limit
-      effort="100"
-      velocity="100" />
-    <dynamics
-      damping="0.1"
-      friction="0.1" /> -->
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
   </joint>
   <link
     name="${name}_s4">
@@ -271,12 +262,9 @@
       link="${name}_s4" />
     <axis
       xyz="0 1 0" />
-    <!-- <limit
-      effort="100"
-      velocity="100" />
-    <dynamics
-      damping="0.1"
-      friction="0.1" /> -->
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
   </joint>
   <link
     name="${name}_s5">
@@ -330,12 +318,9 @@
       link="${name}_s5" />
     <axis
       xyz="0 1 0" />
-    <!-- <limit
-      effort="100"
-      velocity="100" />
-    <dynamics
-      damping="0.1"
-      friction="0.1" /> -->
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
   </joint>
   <link
     name="${name}_s6">
@@ -389,12 +374,9 @@
       link="${name}_s6" />
     <axis
       xyz="0 1 0" />
-    <!-- <limit
-      effort="100"
-      velocity="100" />
-    <dynamics
-      damping="0.1"
-      friction="0.1" /> -->
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
   </joint>
   <link
     name="${name}_s7">
@@ -448,12 +430,9 @@
       link="${name}_s7" />
     <axis
       xyz="0 1 0" />
-    <!-- <limit
-      effort="100"
-      velocity="100" />
-    <dynamics
-      damping="0.1"
-      friction="0.1" /> -->
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
   </joint>
   <link
     name="${name}_s8">
@@ -507,12 +486,9 @@
       link="${name}_s8" />
     <axis
       xyz="0 1 0" />
-    <!-- <limit
-      effort="100"
-      velocity="100" />
-    <dynamics
-      damping="0.1"
-      friction="0.1" /> -->
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
   </joint>
   <link
     name="${name}_s9">
@@ -566,94 +542,118 @@
       link="${name}_s9" />
     <axis
       xyz="0 1 0" />
-    <!-- <limit
-      effort="100"
-      velocity="100" />
-    <dynamics
-      damping="0.1"
-      friction="0.1" /> -->
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
   </joint>  
 
 
 
 	<gazebo reference="${name}_s1">
     <material>Gazebo/Black</material>
-    <mu1>1</mu1>
-    <mu2>1</mu2>
-    <kp>10000.0</kp>
-    <kd>1000000.0</kd>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kd>$(arg _kd)</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_left)</fdir1>
     <!-- <selfCollide>true</selfCollide>  -->
 </gazebo>
 
 <gazebo reference="${name}_s2">
     <material>Gazebo/Black</material>
-    <mu1>1</mu1>
-    <mu2>1</mu2>
-    <kp>10000.0</kp>
-    <kd>1000000.0</kd>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kd>$(arg _kd)</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_left)</fdir1>
     <!-- <selfCollide>true</selfCollide>  -->
 </gazebo>
 
 <gazebo reference="${name}_s3">
     <material>Gazebo/Black</material>
-    <mu1>1</mu1>
-    <mu2>1</mu2>
-    <kp>10000.0</kp>
-    <kd>1000000.0</kd>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kd>$(arg _kd)</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_left)</fdir1>
     <!-- <selfCollide>true</selfCollide>  -->
 </gazebo>
 
 <gazebo reference="${name}_s4">
     <material>Gazebo/Black</material>
-    <mu1>1</mu1>
-    <mu2>1</mu2>
-    <kp>10000.0</kp>
-    <kd>1000000.0</kd>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kd>$(arg _kd)</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_left)</fdir1>
     <!-- <selfCollide>true</selfCollide>  -->
 </gazebo>
 
 <gazebo reference="${name}_s5">
     <material>Gazebo/Black</material>
-    <mu1>1</mu1>
-    <mu2>1</mu2>
-    <kp>10000.0</kp>
-    <kd>1000000.0</kd>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kd>$(arg _kd)</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_left)</fdir1>
     <!-- <selfCollide>true</selfCollide>  -->
 </gazebo>
 
 <gazebo reference="${name}_s6">
     <material>Gazebo/Black</material>
-    <mu1>1</mu1>
-    <mu2>1</mu2>
-    <kp>10000.0</kp>
-    <kd>1000000.0</kd>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kd>$(arg _kd)</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_left)</fdir1>
     <!-- <selfCollide>true</selfCollide>  -->
 </gazebo>
 
 <gazebo reference="${name}_s7">
     <material>Gazebo/Black</material>
-    <mu1>1</mu1>
-    <mu2>1</mu2>
-    <kp>10000.0</kp>
-    <kd>1000000.0</kd>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kd>$(arg _kd)</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_left)</fdir1>
     <!-- <selfCollide>true</selfCollide>  -->
 </gazebo>
 
 <gazebo reference="${name}_s8">
     <material>Gazebo/Black</material>
-    <mu1>1</mu1>
-    <mu2>1</mu2>
-    <kp>10000.0</kp>
-    <kd>1000000.0</kd>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kd>$(arg _kd)</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_left)</fdir1>
     <!-- <selfCollide>true</selfCollide>  -->
 </gazebo>
 
 <gazebo reference="${name}_s9">
     <material>Gazebo/Black</material>
-    <mu1>1</mu1>
-    <mu2>1</mu2>
-    <kp>10000.0</kp>
-    <kd>1000000.0</kd>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kd>$(arg _kd)</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_left)</fdir1>
     <!-- <selfCollide>true</selfCollide>  -->
 </gazebo>
 

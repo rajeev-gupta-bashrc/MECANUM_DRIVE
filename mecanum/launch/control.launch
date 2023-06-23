@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
   <rosparam file="$(find mecanum)/config/joint_velocity_controller.yaml" command="load"/> 
+  <arg name="node_start_delay" default="3.0" />  
 
-  <node name="controller_spawner" pkg="controller_manager" 
+  <node name="mecanum_controller_spawner" pkg="controller_manager" 
       type="spawner" respawn="false" output="screen" ns="/mecanum" 
   args="--namespace=/mecanum 
-        joint_state_controller
         one_joint_velocity_controller
         two_joint_velocity_controller
         three_joint_velocity_controller
         four_joint_velocity_controller
+        joint_state_controller
+        one_slider_joint_position_controller
+        two_slider_joint_position_controller
+        three_slider_joint_position_controller
+        one_encoder_velocity_controller
+        two_encoder_velocity_controller
+        three_encoder_velocity_controller
   "/>
 
-  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <remap from="/joint_states" to="/mecanum/joint_states" />
+  </node> -->
+
+  <node name="mecanum_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
 	respawn="false" output="screen">
     <remap from="/joint_states" to="/mecanum/joint_states" />
     <param name="tf_prefix" value=""/>
-  </node> -->
-  <!-- <node name="mecanum_ctrl" pkg="mecanum" type="mecanum_ctrl.py" output="screen"/> -->
+  </node>
+  <node name="mecanum_ctrl" pkg="mecanum" type="mecanum_ctrl.py" output="screen"
+      launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
   <!-- <node name="send_cmd_vel" pkg="mecanum" type="send_cmd_vel.py" output="screen"/> -->
 
 </launch>

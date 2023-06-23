@@ -2,7 +2,8 @@
 <launch>
   <arg name="paused" default="false"/>
   <arg name="gui" default="true"/>
-  <arg name="_world" value="$(find mecanum)/worlds/Maze.world"/>
+  <!-- <arg name="_world" value="$(find mecanum)/worlds/Maze.world"/> -->
+  <arg name="_world" value="$(find mecanum)/worlds/arena.world"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(arg _world)"/>
@@ -11,9 +12,9 @@
   </include>
   
   <param name="robot_description"
-   command="$(find xacro)/xacro --inorder '$(find mecanum)/urdf/base.urdf.xacro'" />
+   command="$(find xacro)/xacro --inorder '$(find mecanum)/urdf/base.xacro'" />
    
-	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" 
-    output="screen" args="-urdf -model mecanum -param robot_description -x 0 -y 0 -z 0"/>
+	<node name="mecanum_spawner" pkg="gazebo_ros" type="spawn_model" 
+    output="screen" args="-urdf -model mecanum -param robot_description -x 0 -y 0 -z 0 -R 0 -P 0 -Y 0"/>
  
 </launch>

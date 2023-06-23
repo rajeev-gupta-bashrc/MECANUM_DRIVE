@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/rajeev/project_ws/devel/lib/python3/dist-packages",
+        "/home/rajeev/rajeev_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/rajeev/project_ws/devel/lib/python3/dist-packages",
+        "/home/rajeev/rajeev_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

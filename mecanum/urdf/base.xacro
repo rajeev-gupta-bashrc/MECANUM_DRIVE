@@ -1,11 +1,21 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mecanum">
-	<xacro:include filename="$(find mecanum)/urdf/left_rim.urdf.xacro"/>
-  <xacro:include filename="$(find mecanum)/urdf/right_rim.urdf.xacro"/>
+	<xacro:include filename="$(find mecanum)/urdf/left_rim.xacro"/>
+  <xacro:include filename="$(find mecanum)/urdf/right_rim.xacro"/>
+  <xacro:include filename="$(find mecanum)/urdf/encoder_rim.xacro"/>
+
 	<material name="dark">
     	<color rgba="0.3 0.3 0.3 1.0"/>
   </material>
-	
+	<xacro:arg name="_kp"   default="1e5"/>
+  <xacro:arg name="_kd"   default="1e5"/>
+  <xacro:arg name="_maxVel"   default="40"/>
+  <xacro:arg name="_fdir1_left"   default="1 1 0"/>
+  <xacro:arg name="_fdir1_right"   default="1 -1 0"/>
+  <xacro:arg name="_mu1"   default="10"/>
+  <xacro:arg name="_mu2"   default="10"/>
+
+
 	<link name="base_footprint"/>
 	<link name="base_link">
 	<inertial>
@@ -47,28 +57,24 @@
 		<origin xyz="0 0 0.104" rpy="-1.57079632679 0 0"/>
 	</joint>
 
-    <!-- xyz="0.2 0.054 -0.195" -->
 	<xacro:left_rim_macro
     name="one"
     color="0.3 0 0"
     xyz="0.2 0.056 -0.236"
     rpy="1.57 0 0"
   />
-    <!-- xyz="-0.2 0.056 -0.28" -->
   <xacro:right_rim_macro
     name="two"
     color="0 0.3 0"
     xyz="-0.2 0.056 -0.34"
     rpy="-1.57 0 0"
   />
-    <!-- xyz="-0.2 0.056 0.196" -->
   <xacro:left_rim_macro
     name="three"
     color="0 0 0.3"
     xyz="-0.2 0.056 0.236"
     rpy="-1.57 0 0"
   />
-    <!-- xyz="0.2 0.056 0.28" -->
   <xacro:right_rim_macro
     name="four"
     color="0 0 0.3"
@@ -83,37 +89,37 @@
 
 	<gazebo reference="left_rim_one_link">
     <material>Gazebo/Red</material>
-    <mu1>0.2</mu1>
-  	<mu2>0.2</mu2>
+    <!-- <mu1>0.3</mu1>
+  	<mu2>0.3</mu2>
     <kp>500000.0</kp>
-    <kd>10.0</kd>
+    <kd>10.0</kd> -->
   	<!-- <selfCollide>true</selfCollide> -->
   </gazebo>
 
 	<gazebo reference="right_rim_two_link">
     <material>Gazebo/Green</material>
-    <mu1>0.2</mu1>
-  	<mu2>0.2</mu2>
+    <!-- <mu1>0.3</mu1>
+  	<mu2>0.3</mu2>
     <kp>500000.0</kp>
-    <kd>10.0</kd>
+    <kd>10.0</kd> -->
   	<!-- <selfCollide>true</selfCollide> -->
   </gazebo>
 
 	<gazebo reference="left_rim_three_link">
     <material>Gazebo/Blue</material>
-    <mu1>0.2</mu1>
-  	<mu2>0.2</mu2>
+    <!-- <mu1>0.3</mu1>
+  	<mu2>0.3</mu2>
     <kp>500000.0</kp>
-    <kd>10.0</kd>
+    <kd>10.0</kd> -->
   	<!-- <selfCollide>true</selfCollide> -->
   </gazebo>
 
   <gazebo reference="right_rim_four_link">
   	<material>Gazebo/Orange</material>
-    <mu1>0.2</mu1>
-  	<mu2>0.2</mu2>
+    <!-- <mu1>0.3</mu1>
+  	<mu2>0.3</mu2>
     <kp>500000.0</kp>
-    <kd>10.0</kd>
+    <kd>10.0</kd> -->
   	<!-- <selfCollide>true</selfCollide> -->
   </gazebo>
 	
@@ -209,7 +215,7 @@
         </scan>
         <range>
           <min>0.120</min>
-          <max>3.5</max>
+          <max>10</max>
           <resolution>0.015</resolution>
         </range>
         <noise>
@@ -224,6 +230,45 @@
       </plugin>
     </sensor>
   </gazebo>
+
+  <!-- holonomic encoder setup -->
+  <xacro:encoder_macro
+    name="one"
+    color="0.3 0 0"
+    xyz="0.04 0.08 0"
+    rpy="0 -1.570796327 0"/>
+  <xacro:encoder_macro
+    name="two"
+    color="0 0.3 0"
+    xyz="-0.02 0.08 0.034641016"
+    rpy="0 2.617993878 0"/>
+  <xacro:encoder_macro
+    name="three"
+    color="0 0 0.3"
+    xyz="-0.02 0.08 -0.03464101615"
+    rpy="0 0.523598776 0"/>
+
+  <gazebo reference="encoder_one_link">
+  	<material>Gazebo/Red</material>
+    <mu1>$(arg _mu1)</mu1>
+  	<mu2>$(arg _mu2)</mu2>
+  	<selfCollide>true</selfCollide>
+  </gazebo>
+
+	<gazebo reference="encoder_two_link">
+  	<material>Gazebo/Green</material>
+    <mu1>$(arg _mu1)</mu1>
+  	<mu2>$(arg _mu2)</mu2>
+  	<selfCollide>true</selfCollide>
+  </gazebo>
+
+	<gazebo reference="encoder_three_link">
+  	<material>Gazebo/Blue</material>
+    <mu1>$(arg _mu1)</mu1>
+  	<mu2>$(arg _mu2)</mu2>
+  	<selfCollide>true</selfCollide>
+  </gazebo>
+
 
   <gazebo>
 	  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
