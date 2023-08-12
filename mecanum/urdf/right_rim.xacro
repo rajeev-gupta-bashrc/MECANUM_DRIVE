@@ -1,0 +1,676 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro
+	name="right_rim_macro"
+	params="name color xyz rpy">
+
+		<link name="right_rim_${name}_link">
+			<inertial>
+    		  <origin
+    		    xyz="1.0506E-07 9.3419E-08 0.078465"
+    		    rpy="0 0 0" />
+    		  <mass
+    		    value="0.12455" />
+    		  <inertia
+    		    ixx="4.2965E-05"
+    		    ixy="-1.5215E-09"
+    		    ixz="1.9309E-10"
+    		    iyy="4.2966E-05"
+    		    iyz="-2.1715E-10"
+    		    izz="7.0188E-05" />
+    		</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="package://mecanum/meshes/rightwheel.STL" scale="1 1 1"/>
+				</geometry>
+				<material name="right_rim_${name}_material">
+					<color rgba="${color} 1"/>
+				</material>
+			</visual>
+			<collision>
+				<geometry>
+					<mesh filename="package://mecanum/meshes/rightwheel.STL" scale="1 1 1"/>
+				</geometry>
+			</collision>
+		</link>
+
+		<joint
+			name="right_rim_${name}_joint"
+			type="continuous">
+			<parent link="base_link" />
+			<child link="right_rim_${name}_link" />
+			<axis xyz="0 1 0"/>
+			<origin xyz="${xyz}" rpy="${rpy}"/>
+      <limit effort="8" velocity="$(arg _maxVel)"/>
+		</joint>
+        
+		<link
+    name="${name}_s2">
+    <inertial>
+      <origin
+        xyz="-9.7145E-17 -0.00099294 -2.7756E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.010529" />
+      <inertia
+        ixx="1.7311E-06"
+        ixy="-1.9852E-22"
+        ixz="2.647E-23"
+        iyy="4.3447E-07"
+        iyz="-3.2425E-22"
+        izz="1.7311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s2.STL" />
+      </geometry>
+      <material
+        name="right_rim_${name}_m2">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="${name}_joint_s2"
+    type="continuous">
+    <origin
+      xyz="-0.0071115 -0.077699 0.038041"
+      rpy="2.9884 -0.3648 2.4216" />
+    <parent
+      link="right_rim_${name}_link" />
+    <child
+      link="${name}_s2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
+  </joint>
+  <link
+    name="${name}_s3">
+    <inertial>
+      <origin
+        xyz="2.08166817117217E-17 0.00776513896531114 6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872446" />
+      <inertia
+        ixx="1.73108849475212E-06"
+        ixy="-4.7811039405565E-22"
+        ixz="2.18375681713999E-22"
+        iyy="4.34469260623841E-07"
+        iyz="7.94093388050907E-23"
+        izz="1.73108849475213E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s3.STL" />
+      </geometry>
+      <material
+        name="right_rim_${name}_m3">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="${name}_joint_s3"
+    type="continuous">
+    <origin
+      xyz="0.023218 -0.072911 0.031437"
+      rpy="2.4323 -1.0288 -0.087593" />
+    <parent
+      link="right_rim_${name}_link" />
+    <child
+      link="${name}_s3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
+  </joint>
+  <link
+    name="${name}_s4">
+    <inertial>
+      <origin
+        xyz="6.9389E-18 0.028754 -6.9389E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.010529" />
+      <inertia
+        ixx="1.7311E-06"
+        ixy="2.7793E-22"
+        ixz="0"
+        iyy="4.3447E-07"
+        iyz="7.2792E-22"
+        izz="1.7311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s4.STL" />
+      </geometry>
+      <material
+        name="right_rim_${name}_m4">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="${name}_joint_s4"
+    type="continuous">
+    <origin
+      xyz="0.043487 -0.05813 -0.0046936"
+      rpy="2.4229 -0.057989 -0.30256" />
+    <parent
+      link="right_rim_${name}_link" />
+    <child
+      link="${name}_s4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
+  </joint>
+  <link
+    name="${name}_s5">
+    <inertial>
+      <origin
+        xyz="0 0.039217 1.3878E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.010529" />
+      <inertia
+        ixx="1.7311E-06"
+        ixy="6.6174E-24"
+        ixz="0"
+        iyy="4.3447E-07"
+        iyz="3.8381E-22"
+        izz="1.7311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s5.STL" />
+      </geometry>
+      <material
+        name="right_rim_${name}_m5">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="${name}_joint_s5"
+    type="continuous">
+    <origin
+      xyz="0.027965 -0.050731 -0.03857"
+      rpy="2.2118 0.57852 -0.32722" />
+    <parent
+      link="right_rim_${name}_link" />
+    <child
+      link="${name}_s5" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
+  </joint>
+  <link
+    name="${name}_s6">
+    <inertial>
+      <origin
+        xyz="0 -0.038953 1.0408E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.010529" />
+      <inertia
+        ixx="1.7311E-06"
+        ixy="1.9852E-22"
+        ixz="2.647E-23"
+        iyy="4.3447E-07"
+        iyz="7.9409E-23"
+        izz="1.7311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s6.STL" />
+      </geometry>
+      <material
+        name="right_rim_${name}_m6">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="${name}_joint_s6"
+    type="continuous">
+    <origin
+      xyz="-0.0032111 -0.050918 -0.047424"
+      rpy="-1.9973 1.1512 -1.3272" />
+    <parent
+      link="right_rim_${name}_link" />
+    <child
+      link="${name}_s6" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
+  </joint>
+  <link
+    name="${name}_s7">
+    <inertial>
+      <origin
+        xyz="1.38777878078145E-17 -0.0328477455268054 -2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872446" />
+      <inertia
+        ixx="1.73108849475224E-06"
+        ixy="4.63221143029695E-22"
+        ixz="-2.64697796016969E-23"
+        iyy="4.34469260624082E-07"
+        iyz="-6.61744490042422E-23"
+        izz="1.73108849475224E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s7.STL" />
+      </geometry>
+      <material
+        name="right_rim_${name}_m7">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="${name}_joint_s7"
+    type="continuous">
+    <origin
+      xyz="-0.028672 -0.055235 -0.034893"
+      rpy="0.47057 1.3419 1.24" />
+    <parent
+      link="right_rim_${name}_link" />
+    <child
+      link="${name}_s7" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
+  </joint>
+  <link
+    name="${name}_s8">
+    <inertial>
+      <origin
+        xyz="-1.0408E-17 -0.017391 2.7756E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.010529" />
+      <inertia
+        ixx="1.7311E-06"
+        ixy="4.0366E-22"
+        ixz="2.647E-23"
+        iyy="4.3447E-07"
+        iyz="1.1911E-22"
+        izz="1.7311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s8.STL" />
+      </geometry>
+      <material
+        name="right_rim_${name}_m8">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="${name}_joint_s8"
+    type="continuous">
+    <origin
+      xyz="-0.037132 -0.066164 -0.016468"
+      rpy="1.3656 -1.0006 -0.74202" />
+    <parent
+      link="right_rim_${name}_link" />
+    <child
+      link="${name}_s8" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
+  </joint>
+  <link
+    name="${name}_s9">
+    <inertial>
+      <origin
+        xyz="0 -0.00029534 -1.3878E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.010529" />
+      <inertia
+        ixx="1.7311E-06"
+        ixy="7.9409E-23"
+        ixz="1.3235E-22"
+        iyy="4.3447E-07"
+        iyz="2.9117E-22"
+        izz="1.7311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s9.STL" />
+      </geometry>
+      <material
+        name="right_rim_${name}_m9">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="${name}_joint_s9"
+    type="continuous">
+    <origin
+      xyz="-0.038685 -0.078253 -0.00083091"
+      rpy="2.1934 -0.51538 -2.5115" />
+    <parent
+      link="right_rim_${name}_link" />
+    <child
+      link="${name}_s9" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
+  </joint>
+  <link
+    name="${name}_s10">
+    <inertial>
+      <origin
+        xyz="3.4694E-17 -0.0054517 -3.4694E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.010529" />
+      <inertia
+        ixx="1.7311E-06"
+        ixy="2.3161E-22"
+        ixz="-1.3235E-23"
+        iyy="4.3447E-07"
+        iyz="6.088E-22"
+        izz="1.7311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s10.STL" />
+      </geometry>
+      <material
+        name="right_rim_${name}_m10">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/right/s10.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="${name}_joint_s10"
+    type="continuous">
+    <origin
+      xyz="-0.027943 -0.074547 0.027042"
+      rpy="0.98708 0.84407 0.29152" />
+    <parent
+      link="right_rim_${name}_link" />
+    <child
+      link="${name}_s10" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="0"
+      velocity="$(arg _maxVel)" />
+  </joint>
+
+
+  <gazebo reference="${name}_s2">
+    <material>Gazebo/Black</material>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kp>$(arg _kd)</kp>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_right)</fdir1>
+    <!-- <selfCollide>true</selfCollide> -->
+</gazebo>
+
+<gazebo reference="${name}_s3">
+    <material>Gazebo/Black</material>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kp>$(arg _kd)</kp>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_right)</fdir1>
+    <!-- <selfCollide>true</selfCollide> -->
+</gazebo>
+
+<gazebo reference="${name}_s4">
+    <material>Gazebo/Black</material>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kp>$(arg _kd)</kp>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_right)</fdir1>
+    <!-- <selfCollide>true</selfCollide> -->
+</gazebo>
+
+<gazebo reference="${name}_s5">
+    <material>Gazebo/Black</material>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kp>$(arg _kd)</kp>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_right)</fdir1>
+    <!-- <selfCollide>true</selfCollide> -->
+</gazebo>
+
+<gazebo reference="${name}_s6">
+    <material>Gazebo/Black</material>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kp>$(arg _kd)</kp>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_right)</fdir1>
+    <!-- <selfCollide>true</selfCollide> -->
+</gazebo>
+
+<gazebo reference="${name}_s7">
+    <material>Gazebo/Black</material>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kp>$(arg _kd)</kp>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_right)</fdir1>
+    <!-- <selfCollide>true</selfCollide> -->
+</gazebo>
+
+<gazebo reference="${name}_s8">
+    <material>Gazebo/Black</material>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kp>$(arg _kd)</kp>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_right)</fdir1>
+    <!-- <selfCollide>true</selfCollide> -->
+</gazebo>
+
+<gazebo reference="${name}_s9">
+    <material>Gazebo/Black</material>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kp>$(arg _kd)</kp>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_right)</fdir1>
+    <!-- <selfCollide>true</selfCollide> -->
+</gazebo>
+
+<gazebo reference="${name}_s10">
+    <material>Gazebo/Black</material>
+    <mu1>$(arg _mu1)</mu1>
+    <mu2>$(arg _mu2)</mu2>
+    <kp>$(arg _kp)</kp>
+    <kp>$(arg _kd)</kp>
+    <minDepth>0.001</minDepth>
+    <maxVel>$(arg _maxVel)</maxVel>
+    <fdir1>$(arg _fdir1_right)</fdir1>
+    <!-- <selfCollide>true</selfCollide> -->
+</gazebo>
+
+  <transmission name="right_rim_${name}_transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="right_rim_${name}_joint">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="right_rim_${name}_motor">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+
+</xacro:macro>
+
+</robot>

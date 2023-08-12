@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mecanum">
+	<xacro:include filename="$(find mecanum)/urdf/left_rim.xacro"/>
+  <xacro:include filename="$(find mecanum)/urdf/right_rim.xacro"/>
+  <xacro:include filename="$(find mecanum)/urdf/encoder_rim.xacro"/>
+
+	<material name="dark">
+    	<color rgba="0.3 0.3 0.3 1.0"/>
+  </material>
+	<xacro:arg name="_kp"   default="1e5"/>
+  <xacro:arg name="_kd"   default="1e5"/>
+  <xacro:arg name="_maxVel"   default="40"/>
+  <xacro:arg name="_fdir1_left"   default="1 1 0"/>
+  <xacro:arg name="_fdir1_right"   default="1 -1 0"/>
+  <xacro:arg name="_mu1"   default="10"/>
+  <xacro:arg name="_mu2"   default="10"/>
+
+
+	<link name="base_footprint"/>
+	<link name="base_link">
+	<inertial>
+      <origin
+        xyz="3.8106E-17 5.5042E-17 -0.0052377"
+        rpy="0 0 0" />
+      <mass
+        value="4.9166" />
+      <inertia
+        ixx="0.082486"
+        ixy="5.0994E-06"
+        ixz="1.5081E-20"
+        iyy="0.078984"
+        iyz="1.3553E-19"
+        izz="0.16031" />
+    </inertial>
+	<visual>
+		<geometry>
+			<mesh filename="package://mecanum/meshes/base.STL" scale="1 1 1.2" />
+			<!-- <mesh filename="package://mecanum/meshes/base.STL" /> -->
+
+		</geometry>
+		<material name="base_material">
+			<color rgba="1 1 1 1"/>
+		</material>
+	</visual>
+	<collision>
+		<geometry>
+			<mesh filename="package://mecanum/meshes/base.STL" scale="1 1 1.2" />
+			<!-- <mesh filename="package://mecanum/meshes/base.STL"/> -->
+
+		</geometry>
+	</collision>
+	</link>
+
+	<joint name="base_joint" type="fixed">
+		<parent link="base_footprint" />
+		<child link="base_link" />
+		<origin xyz="0 0 0.104" rpy="-1.57079632679 0 0"/>
+	</joint>
+
+	<xacro:left_rim_macro
+    name="one"
+    color="0.3 0 0"
+    xyz="0.2 0.056 -0.236"
+    rpy="1.57 0 0"
+  />
+  <xacro:right_rim_macro
+    name="two"
+    color="0 0.3 0"
+    xyz="-0.2 0.056 -0.34"
+    rpy="-1.57 0 0"
+  />
+  <xacro:left_rim_macro
+    name="three"
+    color="0 0 0.3"
+    xyz="-0.2 0.056 0.236"
+    rpy="-1.57 0 0"
+  />
+  <xacro:right_rim_macro
+    name="four"
+    color="0 0 0.3"
+    xyz="0.2 0.056 0.34"
+    rpy="1.57 0 0" 
+  />
+
+
+	<gazebo reference="base_link">
+  	<material>Gazebo/White</material>
+  </gazebo>
+
+	<gazebo reference="left_rim_one_link">
+    <material>Gazebo/Red</material>
+    <!-- <mu1>0.3</mu1>
+  	<mu2>0.3</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd> -->
+  	<!-- <selfCollide>true</selfCollide> -->
+  </gazebo>
+
+	<gazebo reference="right_rim_two_link">
+    <material>Gazebo/Green</material>
+    <!-- <mu1>0.3</mu1>
+  	<mu2>0.3</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd> -->
+  	<!-- <selfCollide>true</selfCollide> -->
+  </gazebo>
+
+	<gazebo reference="left_rim_three_link">
+    <material>Gazebo/Blue</material>
+    <!-- <mu1>0.3</mu1>
+  	<mu2>0.3</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd> -->
+  	<!-- <selfCollide>true</selfCollide> -->
+  </gazebo>
+
+  <gazebo reference="right_rim_four_link">
+  	<material>Gazebo/Orange</material>
+    <!-- <mu1>0.3</mu1>
+  	<mu2>0.3</mu2>
+    <kp>500000.0</kp>
+    <kd>10.0</kd> -->
+  	<!-- <selfCollide>true</selfCollide> -->
+  </gazebo>
+	
+	<joint name="imu_joint" type="fixed">
+  	<parent link="base_footprint"/>
+  	<child link="imu_link"/>
+  	<origin xyz="0 0 0.26325" rpy="0 0 0"/>
+  </joint>
+
+  <link name="imu_link"/>
+
+  <joint name="scan_joint" type="fixed">
+  	<parent link="base_footprint"/>
+  	<child link="base_scan"/>
+  	<origin xyz="0 0 0.15" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_scan">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mecanum/meshes/lds.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.0315" radius="0.055"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.114" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+               iyy="0.001" iyz="0.0"
+               izz="0.001" />
+    </inertial>
+  </link>
+
+  <!-- defining imu and laser in gazebo -->
+  <gazebo reference="imu_link">
+    <sensor type="imu" name="imu">
+      <always_on>true</always_on>
+      <visualize>false</visualize>
+    </sensor>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+      <alwaysOn>true</alwaysOn>
+      <bodyName>imu_link</bodyName>
+      <frameName>imu_link</frameName>
+      <topicName>imu</topicName>
+      <serviceName>imu_service</serviceName>
+      <gaussianNoise>0.0</gaussianNoise>
+      <updateRate>0</updateRate>
+      <imu>
+        <noise>
+          <type>gaussian</type>
+          <rate>
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+            <bias_mean>0.0000075</bias_mean>
+            <bias_stddev>0.0000008</bias_stddev>
+          </rate>
+          <accel>
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+            <bias_mean>0.1</bias_mean>
+            <bias_stddev>0.001</bias_stddev>
+          </accel>
+        </noise>
+      </imu>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="base_scan">
+    <material>Gazebo/FlatBlack</material>
+    <sensor type="ray" name="lds_lfcd_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>50</update_rate>
+      <ray>
+        <scan>
+          <horizontal> 
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>0.0</min_angle>
+            <max_angle>6.28319</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.120</min>
+          <max>10</max>
+          <resolution>0.015</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_lds_lfcd_controller" filename="libgazebo_ros_laser.so">
+        <topicName>scan</topicName>
+        <frameName>base_scan</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- holonomic encoder setup -->
+  <xacro:encoder_macro
+    name="one"
+    color="0.3 0 0"
+    xyz="0.04 0.08 0"
+    rpy="0 -1.570796327 0"/>
+  <xacro:encoder_macro
+    name="two"
+    color="0 0.3 0"
+    xyz="-0.02 0.08 0.034641016"
+    rpy="0 2.617993878 0"/>
+  <xacro:encoder_macro
+    name="three"
+    color="0 0 0.3"
+    xyz="-0.02 0.08 -0.03464101615"
+    rpy="0 0.523598776 0"/>
+
+  <gazebo reference="encoder_one_link">
+  	<material>Gazebo/Red</material>
+    <mu1>$(arg _mu1)</mu1>
+  	<mu2>$(arg _mu2)</mu2>
+  	<selfCollide>true</selfCollide>
+  </gazebo>
+
+	<gazebo reference="encoder_two_link">
+  	<material>Gazebo/Green</material>
+    <mu1>$(arg _mu1)</mu1>
+  	<mu2>$(arg _mu2)</mu2>
+  	<selfCollide>true</selfCollide>
+  </gazebo>
+
+	<gazebo reference="encoder_three_link">
+  	<material>Gazebo/Blue</material>
+    <mu1>$(arg _mu1)</mu1>
+  	<mu2>$(arg _mu2)</mu2>
+  	<selfCollide>true</selfCollide>
+  </gazebo>
+
+
+  <gazebo>
+	  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+	    <robotNamespace>/mecanum</robotNamespace>
+      <!-- <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType> -->
+	  </plugin>
+	</gazebo>
+
+
+</robot>
