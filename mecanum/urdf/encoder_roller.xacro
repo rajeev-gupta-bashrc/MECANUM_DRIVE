@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro
+	name="roller_macro"
+	params="parent name xyz rpy">
+
+		<link name="roller_${name}_rim_${parent}_link">
+			<inertial>
+				<mass value="0.020"/>
+				<inertia
+					ixx="1.1150741638547095e-05"
+					ixy="0"
+					ixz="0"
+					iyy="1.1150741638547095e-05"
+					iyz="0"
+					izz="6.484199876249221e-06"/>
+			</inertial>
+			<visual>
+				<geometry>
+					<mesh filename="package://mecanum/meshes/roller.stl"/>
+				</geometry>
+				<material name="roller_material">
+					<color rgba="0.1 0.1 0.1 1"/>
+				</material>
+			</visual>
+			<collision>
+				<geometry>
+					<mesh filename="package://mecanum/meshes/roller.stl"/>
+				</geometry>
+			</collision>
+		</link>
+	<gazebo reference="roller_${name}_rim_${parent}_link">
+    	<material>Gazebo/Black</material>
+		<mu1>$(arg _mu1)</mu1>
+  		<mu2>$(arg _mu2)</mu2>
+		<kp>$(arg _kp)</kp>
+		<kd>$(arg _kd)</kd>
+  		<selfCollide>true</selfCollide>
+  	</gazebo>
+		<joint name="roller_${name}_rim_${parent}_joint" type="continuous">
+			<parent link="encoder_${parent}_link"/>
+			<child link="roller_${name}_rim_${parent}_link"/>
+			<axis xyz="0 0 1"/>
+			<origin xyz="${xyz}" rpy="${rpy}"/>
+
+		</joint>
+	</xacro:macro>
+
+</robot>

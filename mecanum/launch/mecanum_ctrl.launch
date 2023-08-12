@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <node name="mecanum_ctrl" pkg="mecanum" type="mecanum_ctrl.py" output="screen"/>
+</launch>

@@ -1,0 +1,2407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="mecanum">
+  <link
+    name="basplate">
+    <inertial>
+      <origin
+        xyz="3.8106E-17 5.5042E-17 -0.0052377"
+        rpy="0 0 0" />
+      <mass
+        value="4.9166" />
+      <inertia
+        ixx="0.082486"
+        ixy="5.0994E-06"
+        ixz="1.5081E-20"
+        iyy="0.078984"
+        iyz="1.3553E-19"
+        izz="0.16031" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/basplate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/basplate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="w1">
+    <inertial>
+      <origin
+        xyz="1.0271E-07 9.1408E-08 0.026226"
+        rpy="0 0 0" />
+      <mass
+        value="0.12455" />
+      <inertia
+        ixx="4.2965E-05"
+        ixy="-1.51E-09"
+        ixz="-1.9099E-10"
+        iyy="4.2966E-05"
+        iyz="2.1475E-10"
+        izz="7.0188E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/w1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/w1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="w1"
+    type="continuous">
+    <origin
+      xyz="0.2 0.055 -0.19077"
+      rpy="-3.1416 0 -1.6084" />
+    <parent
+      link="basplate" />
+    <child
+      link="w1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s9">
+    <inertial>
+      <origin
+        xyz="-0.0344022889480575 0.0184971796173028 0.0256120369206027"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.7310884947528E-06"
+        ixy="8.20563167652603E-22"
+        ixz="0"
+        iyy="4.34469260625019E-07"
+        iyz="-2.11758236813575E-22"
+        izz="1.7310884947528E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s9"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0.79486 -0.13669 1.9849" />
+    <parent
+      link="w1" />
+    <child
+      link="s9" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s1">
+    <inertial>
+      <origin
+        xyz="-0.0197903084168241 0.0184971796173024 -0.0380917832741479"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475199E-06"
+        ixy="3.70576914423756E-22"
+        ixz="-3.97046694025453E-23"
+        iyy="4.34469260623661E-07"
+        iyz="-1.44260298829248E-21"
+        izz="1.73108849475199E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s1"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5395 0.78491 2.9513" />
+    <parent
+      link="w1" />
+    <child
+      link="s1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s2">
+    <inertial>
+      <origin
+        xyz="-0.0236447653661649 0.0184971796173024 0.0357829427362656"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872446" />
+      <inertia
+        ixx="1.73108849475358E-06"
+        ixy="-5.9557004103818E-22"
+        ixz="-1.52201232709757E-22"
+        iyy="4.34469260626666E-07"
+        iyz="-1.51374052097204E-22"
+        izz="1.73108849475358E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s2"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0.86209 -0.37262 0.32505" />
+    <parent
+      link="w1" />
+    <child
+      link="s2" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s3">
+    <inertial>
+      <origin
+        xyz="0.036301 0.018497 0.02291"
+        rpy="0 0 0" />
+      <mass
+        value="0.010529" />
+      <inertia
+        ixx="1.7311E-06"
+        ixy="-2.862E-22"
+        ixz="-5.294E-23"
+        iyy="4.3447E-07"
+        iyz="5.6248E-23"
+        izz="1.7311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s3"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="2.0591 -0.64238 -2.2677" />
+    <parent
+      link="w1" />
+    <child
+      link="s3" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s4">
+    <inertial>
+      <origin
+        xyz="-0.0338676258294204 0.0184971796173034 -0.0263746882619675"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.73108849475212E-06"
+        ixy="1.03232140446618E-21"
+        ixz="0"
+        iyy="4.34469260623841E-07"
+        iyz="-1.24407964127975E-21"
+        izz="1.73108849475212E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s4"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.152 0.68567 0.28844" />
+    <parent
+      link="w1" />
+    <child
+      link="s4" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s5">
+    <inertial>
+      <origin
+        xyz="-0.0368441184942621 0.0184971796173037 -0.0220261479296389"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475211E-06"
+        ixy="1.04555629426703E-21"
+        ixz="1.05879118406788E-22"
+        iyy="4.34469260623903E-07"
+        iyz="1.65436122510606E-21"
+        izz="1.73108849475211E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s5"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.0668 0.63087 -0.54876" />
+    <parent
+      link="w1" />
+    <child
+      link="s5" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s6">
+    <inertial>
+      <origin
+        xyz="-0.02159441074816 0.0184971796173041 -0.0370563806182901"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475204E-06"
+        ixy="6.48509600241574E-22"
+        ixz="-5.29395592033938E-23"
+        iyy="4.34469260623665E-07"
+        iyz="1.60142166590266E-21"
+        izz="1.73108849475204E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s6"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.4895 0.78208 -0.61023" />
+    <parent
+      link="w1" />
+    <child
+      link="s6" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s7">
+    <inertial>
+      <origin
+        xyz="-0.0288411690235561 0.0184971796173035 0.0317439898160664"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.73108849475077E-06"
+        ixy="-2.58080351116545E-22"
+        ixz="5.29395592033938E-23"
+        iyy="4.34469260621323E-07"
+        iyz="-1.68744844960818E-22"
+        izz="1.73108849475077E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s7"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0.82382 -0.27031 -3.0448" />
+    <parent
+      link="w1" />
+    <child
+      link="s7" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s8">
+    <inertial>
+      <origin
+        xyz="0.00443653474586841 0.0184971796173034 -0.0426592437759584"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475282E-06"
+        ixy="6.25348543090089E-22"
+        ixz="-5.29395592033938E-23"
+        iyy="4.3446926062507E-07"
+        iyz="6.61744490042422E-23"
+        izz="1.73108849475282E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s8"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="2.0522 0.64719 -1.1774" />
+    <parent
+      link="w1" />
+    <child
+      link="s8" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="w2">
+    <inertial>
+      <origin
+        xyz="1.0514E-07 9.3395E-08 0.023532"
+        rpy="0 0 0" />
+      <mass
+        value="0.12455" />
+      <inertia
+        ixx="4.2965E-05"
+        ixy="-1.5215E-09"
+        ixz="1.9304E-10"
+        iyy="4.2966E-05"
+        iyz="-2.1734E-10"
+        izz="7.0188E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/w2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/w2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="w2"
+    type="continuous">
+    <origin
+      xyz="-0.2 0.055 -0.19347"
+      rpy="3.1416 0 0.52835" />
+    <parent
+      link="basplate" />
+    <child
+      link="w2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s10">
+    <inertial>
+      <origin
+        xyz="0.00567110137161012 -0.0165919320862075 -0.0417526433167431"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.731088494752E-06"
+        ixy="-5.44698433366169E-22"
+        ixz="-1.05879118406788E-22"
+        iyy="4.34469260623603E-07"
+        iyz="1.60473038835287E-22"
+        izz="1.731088494752E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s10.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s10.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s10"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-2.0471 0.6507 -0.15335" />
+    <parent
+      link="w2" />
+    <child
+      link="s10" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s11">
+    <inertial>
+      <origin
+        xyz="-0.035602 -0.016592 -0.022538"
+        rpy="0 0 0" />
+      <mass
+        value="0.010529" />
+      <inertia
+        ixx="1.7311E-06"
+        ixy="6.146E-22"
+        ixz="-1.3235E-23"
+        iyy="4.3447E-07"
+        iyz="2.9117E-22"
+        izz="1.7311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s11.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s11.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s11"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.0572 0.62346 0.6222" />
+    <parent
+      link="w2" />
+    <child
+      link="s11" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s12">
+    <inertial>
+      <origin
+        xyz="0.0315238592548644 -0.0165919320862084 0.0279587358866969"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.7310884947528E-06"
+        ixy="1.85288457211878E-22"
+        ixz="1.58818677610181E-22"
+        iyy="4.34469260625019E-07"
+        iyz="1.58818677610181E-22"
+        izz="1.7310884947528E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s12.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s12.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s12"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.9721 -0.69488 2.8827" />
+    <parent
+      link="w2" />
+    <child
+      link="s12" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s13">
+    <inertial>
+      <origin
+        xyz="0.00228790707281769 -0.0165919320862069 -0.0420738647610225"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.73108849475279E-06"
+        ixy="1.08526096366957E-21"
+        ixz="7.94093388050907E-23"
+        iyy="4.34469260625021E-07"
+        iyz="-1.03232140446618E-21"
+        izz="1.73108849475279E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s13.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s13.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s13"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.9896 0.68565 -2.1551" />
+    <parent
+      link="w2" />
+    <child
+      link="s13" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s14">
+    <inertial>
+      <origin
+        xyz="-0.035338 -0.016592 -0.022887"
+        rpy="0 0 0" />
+      <mass
+        value="0.010529" />
+      <inertia
+        ixx="1.7311E-06"
+        ixy="5.7572E-22"
+        ixz="-1.5882E-22"
+        iyy="4.3447E-07"
+        iyz="-1.4294E-21"
+        izz="1.7311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s14.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s14.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s14"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.0625 0.62762 -1.4813" />
+    <parent
+      link="w2" />
+    <child
+      link="s14" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s15">
+    <inertial>
+      <origin
+        xyz="-0.042037246841354 -0.0165919320862462 -0.00234337447201655"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872446" />
+      <inertia
+        ixx="1.73108849475249E-06"
+        ixy="-1.78671012311454E-22"
+        ixz="-5.29395592033938E-23"
+        iyy="4.34469260624591E-07"
+        iyz="-8.33798057453452E-22"
+        izz="1.73108849475249E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s15.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s15.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s15"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-0.84039 0.31991 -1.7054" />
+    <parent
+      link="w2" />
+    <child
+      link="s15" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s16">
+    <inertial>
+      <origin
+        xyz="-0.0370624821844239 0.0165919320862057 0.0199748326707835"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.73108849475249E-06"
+        ixy="-2.05140791913151E-22"
+        ixz="-3.97046694025453E-23"
+        iyy="4.34469260624593E-07"
+        iyz="2.64697796016969E-23"
+        izz="1.73108849475249E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s16.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s16.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s16"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="2.1272 0.58678 -2.7932" />
+    <parent
+      link="w2" />
+    <child
+      link="s16" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s17">
+    <inertial>
+      <origin
+        xyz="-0.0364162738329069 0.0165919320862063 0.0211966887703938"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872446" />
+      <inertia
+        ixx="1.73108849475213E-06"
+        ixy="-9.52912065661088E-22"
+        ixz="-5.29395592033938E-23"
+        iyy="4.34469260623848E-07"
+        iyz="1.12496563307212E-21"
+        izz="1.73108849475213E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s17.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s17.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s17"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="2.1071 0.60479 2.756" />
+    <parent
+      link="w2" />
+    <child
+      link="s17" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s28">
+    <inertial>
+      <origin
+        xyz="-0.0186305119011866 0.0165919320862066 0.037793499983493"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475249E-06"
+        ixy="4.63221143029695E-23"
+        ixz="5.29395592033938E-23"
+        iyy="4.34469260624587E-07"
+        iyz="-1.19114008207636E-22"
+        izz="1.73108849475249E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s28.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s28.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s28"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.6217 0.7841 1.3222" />
+    <parent
+      link="w2" />
+    <child
+      link="s28" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="w3">
+    <inertial>
+      <origin
+        xyz="1.0333E-07 9.1135E-08 0.026226"
+        rpy="0 0 0" />
+      <mass
+        value="0.12455" />
+      <inertia
+        ixx="4.2965E-05"
+        ixy="-1.5099E-09"
+        ixz="-1.9078E-10"
+        iyy="4.2966E-05"
+        iyz="2.149E-10"
+        izz="7.0188E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/w3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/w3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="w3"
+    type="continuous">
+    <origin
+      xyz="-0.2 0.055 0.19077"
+      rpy="0 0 1.7559" />
+    <parent
+      link="basplate" />
+    <child
+      link="w3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s48">
+    <inertial>
+      <origin
+        xyz="-0.000132059303391691 0.0184971796173005 0.0428891184384577"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.73108849475279E-06"
+        ixy="1.39628087398951E-21"
+        ixz="-1.05879118406788E-22"
+        iyy="4.34469260625023E-07"
+        iyz="2.28963593554678E-21"
+        izz="1.73108849475279E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s48.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s48.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s48"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.1612 -0.69058 2.5466" />
+    <parent
+      link="w3" />
+    <child
+      link="s48" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s49">
+    <inertial>
+      <origin
+        xyz="-0.0355573021560738 0.0184971796173445 -0.0239827476214713"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475237E-06"
+        ixy="1.98523347012727E-22"
+        ixz="-5.29395592033938E-23"
+        iyy="4.34469260624342E-07"
+        iyz="-4.00355416475665E-22"
+        izz="1.73108849475237E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s49.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s49.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s49"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.1018 0.65557 -2.5848" />
+    <parent
+      link="w3" />
+    <child
+      link="s49" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s50">
+    <inertial>
+      <origin
+        xyz="0.0420319851587117 0.0184971796144196 0.00853265161573141"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872446" />
+      <inertia
+        ixx="1.73108849475224E-06"
+        ixy="-8.73502726855997E-22"
+        ixz="2.48154183765908E-23"
+        iyy="4.34469260624082E-07"
+        iyz="-3.05022850878929E-22"
+        izz="1.73108849475224E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s50.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s50.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s50"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="2.2445 -0.43991 -0.52864" />
+    <parent
+      link="w3" />
+    <child
+      link="s50" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s52">
+    <inertial>
+      <origin
+        xyz="0.00194990349947163 0.0184971796173028 -0.0428449739926374"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475158E-06"
+        ixy="9.39677175860239E-22"
+        ixz="2.64697796016969E-23"
+        iyy="4.3446926062268E-07"
+        iyz="-6.22039820639877E-22"
+        izz="1.73108849475158E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s52.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s52.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s52"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="2.0118 0.67308 2.9455" />
+    <parent
+      link="w3" />
+    <child
+      link="s52" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s53">
+    <inertial>
+      <origin
+        xyz="-0.030095508021197 0.0184971796173047 -0.0306088329928402"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475201E-06"
+        ixy="-1.67090483735712E-22"
+        ixz="2.64697796016969E-23"
+        iyy="4.34469260623602E-07"
+        iyz="-2.77932685817817E-22"
+        izz="1.73108849475201E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s53.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s53.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s53"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.2582 0.73307 1.1493" />
+    <parent
+      link="w3" />
+    <child
+      link="s53" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s54">
+    <inertial>
+      <origin
+        xyz="0.0276863467893971 0.0184971796173046 0.0328040616645997"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.7310884947532E-06"
+        ixy="1.85288457211878E-22"
+        ixz="-1.05879118406788E-22"
+        iyy="4.34469260626E-07"
+        iyz="-5.42630481834786E-22"
+        izz="1.73108849475319E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s54.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s54.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s54"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.8162 -0.75401 -2.5912" />
+    <parent
+      link="w3" />
+    <child
+      link="s54" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s55">
+    <inertial>
+      <origin
+        xyz="0.00574234164420549 0.0184971796173041 0.0425401665802913"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.7310884947528E-06"
+        ixy="-1.6675961149069E-21"
+        ixz="-5.29395592033938E-23"
+        iyy="4.34469260625022E-07"
+        iyz="9.39677175860239E-22"
+        izz="1.7310884947528E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s55.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s55.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s55"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.2715 -0.73773 -2.5085" />
+    <parent
+      link="w3" />
+    <child
+      link="s55" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s56">
+    <inertial>
+      <origin
+        xyz="-0.0427002486761909 0.0184971796172626 -0.0040227705721631"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475249E-06"
+        ixy="-2.18706553959021E-21"
+        ixz="4.63221143029695E-23"
+        iyy="4.34469260624587E-07"
+        iyz="5.82335151237331E-22"
+        izz="1.73108849475249E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s56.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s56.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s56"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0.86183 0.37205 -1.665" />
+    <parent
+      link="w3" />
+    <child
+      link="s56" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s51">
+    <inertial>
+      <origin
+        xyz="0.0284577631074191 0.0184971796173032 0.0321371432949401"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.73108849475249E-06"
+        ixy="1.32348898008484E-22"
+        ixz="9.26442286059391E-23"
+        iyy="4.34469260624591E-07"
+        iyz="9.03281228907906E-22"
+        izz="1.73108849475249E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s51.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s51.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s51"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.8377 -0.74799 -0.52822" />
+    <parent
+      link="w3" />
+    <child
+      link="s51" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="w4">
+    <inertial>
+      <origin
+        xyz="1.0512E-07 9.3399E-08 0.026226"
+        rpy="0 0 0" />
+      <mass
+        value="0.12455" />
+      <inertia
+        ixx="4.2965E-05"
+        ixy="-1.5215E-09"
+        ixz="1.9304E-10"
+        iyy="4.2966E-05"
+        iyz="-2.1732E-10"
+        izz="7.0188E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/w4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/w4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="w4"
+    type="continuous">
+    <origin
+      xyz="0.2 0.055 0.19077"
+      rpy="0 0 -2.9064" />
+    <parent
+      link="basplate" />
+    <child
+      link="w4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s29">
+    <inertial>
+      <origin
+        xyz="0.00395298966447456 -0.0184971805216503 0.0427435876926527"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475282E-06"
+        ixy="-5.42630481834786E-22"
+        ixz="-8.27180612553028E-24"
+        iyy="4.3446926062507E-07"
+        iyz="4.53915361138474E-22"
+        izz="1.73108849475282E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s29.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s29.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s29"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.2358 -0.72464 1.1157" />
+    <parent
+      link="w4" />
+    <child
+      link="s29" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s30">
+    <inertial>
+      <origin
+        xyz="-0.0172994254663592 -0.0184971796173048 0.0392857498181147"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475203E-06"
+        ixy="5.42630481834786E-22"
+        ixz="-1.05879118406788E-22"
+        iyy="4.34469260623661E-07"
+        iyz="-5.79026428787119E-22"
+        izz="1.73108849475203E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s30.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s30.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s30"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-0.92121 -0.47793 1.2711" />
+    <parent
+      link="w4" />
+    <child
+      link="s30" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s31">
+    <inertial>
+      <origin
+        xyz="-0.029035868514229 -0.0184971796173044 -0.0316157966823868"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475215E-06"
+        ixy="-5.04580173657347E-23"
+        ixz="-5.29395592033938E-23"
+        iyy="4.34469260623906E-07"
+        iyz="-4.03664138925878E-22"
+        izz="1.73108849475215E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s31.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s31.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s31"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.2878 0.74306 0.25994" />
+    <parent
+      link="w4" />
+    <child
+      link="s31" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s32">
+    <inertial>
+      <origin
+        xyz="-0.0342395578492584 -0.0184971796173044 -0.0258900161939868"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475203E-06"
+        ixy="-7.94093388050907E-22"
+        ixz="1.58818677610181E-22"
+        iyy="4.34469260623661E-07"
+        iyz="1.57495188630096E-21"
+        izz="1.73108849475203E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s32.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s32.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s32"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.1414 0.67981 1.1816" />
+    <parent
+      link="w4" />
+    <child
+      link="s32" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s33">
+    <inertial>
+      <origin
+        xyz="-0.0428133867491218 0.0184971796173033 0.00310711688028098"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.73108849475367E-06"
+        ixy="8.470329472543E-22"
+        ixz="-1.05879118406788E-22"
+        iyy="4.34469260626684E-07"
+        iyz="-4.63221143029695E-22"
+        izz="1.73108849475367E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s33.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s33.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s33"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="2.2855 0.35918 2.4361" />
+    <parent
+      link="w4" />
+    <child
+      link="s33" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s34">
+    <inertial>
+      <origin
+        xyz="-0.0364032978298432 0.0184971796173032 0.0227473112114235"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475249E-06"
+        ixy="7.34536383947089E-22"
+        ixz="-2.64697796016969E-23"
+        iyy="4.34469260624587E-07"
+        iyz="5.9557004103818E-22"
+        izz="1.73108849475249E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s34.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s34.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s34"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="2.062 0.64027 2.6787" />
+    <parent
+      link="w4" />
+    <child
+      link="s34" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s35">
+    <inertial>
+      <origin
+        xyz="0.000660265871562378 0.0184971796173035 0.0428842391685651"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872444" />
+      <inertia
+        ixx="1.73108849475201E-06"
+        ixy="-3.07711187869726E-22"
+        ixz="1.05879118406788E-22"
+        iyy="4.34469260623602E-07"
+        iyz="2.58080351116545E-22"
+        izz="1.73108849475201E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s35.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s35.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s35"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.1519 0.68562 2.0336" />
+    <parent
+      link="w4" />
+    <child
+      link="s35" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s36">
+    <inertial>
+      <origin
+        xyz="0.0265376189657896 -0.0184971796173047 -0.0336934518818488"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.73108849475224E-06"
+        ixy="1.4756902127946E-21"
+        ixz="0"
+        iyy="4.34469260624082E-07"
+        iyz="1.70068333940902E-21"
+        izz="1.73108849475224E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s36.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s36.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s36"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-2.302 0.31772 2.1089" />
+    <parent
+      link="w4" />
+    <child
+      link="s36" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="s37">
+    <inertial>
+      <origin
+        xyz="-0.0106540426150915 -0.0184971796173048 -0.0415449791917586"
+        rpy="0 0 0" />
+      <mass
+        value="0.0105294219872445" />
+      <inertia
+        ixx="1.73108849475281E-06"
+        ixy="1.58818677610181E-21"
+        ixz="5.29395592033938E-23"
+        iyy="4.34469260625037E-07"
+        iyz="-4.89690922631392E-22"
+        izz="1.7310884947528E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s37.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mecanum/meshes/s37.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="s37"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.7622 0.76662 -2.5128" />
+    <parent
+      link="w4" />
+    <child
+      link="s37" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+</robot>

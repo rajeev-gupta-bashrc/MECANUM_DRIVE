@@ -1,0 +1,56 @@
+mecanum:
+
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100 
+  
+  one_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: left_rim_one_joint
+    # pid: {p: 0.0005, i: 0.00001,  d: 0.000001}
+  two_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: right_rim_two_joint
+    # pid: {p: 0.0005, i: 0.00001,  d: 0.000001}
+  three_joint_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: left_rim_three_joint
+    # pid: {p: 0.0005, i: 0.00001,  d: 0.000001}
+  four_joint_velocity_controller:   
+    type: velocity_controllers/JointVelocityController
+    joint: right_rim_four_joint
+    # pid: {p: 0.0005, i: 0.00001,  d: 0.000001}
+
+  one_slider_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: slider_one_joint
+    pid: {p: 100, i: 5, d: 1}
+  two_slider_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: slider_two_joint
+    pid: {p: 100, i: 5, d: 1}
+  three_slider_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: slider_three_joint
+    pid: {p: 100, i: 5, d: 1}
+
+  one_encoder_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: encoder_one_joint
+  two_encoder_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: encoder_two_joint
+  three_encoder_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: encoder_three_joint
+
+  gazebo_ros_control:
+      pid_gains:
+          left_rim_one_joint:   {p: 0.1, i: 0.001, d: 0.00002}
+          right_rim_two_joint:  {p: 0.1, i: 0.001, d: 0.00002}
+          left_rim_three_joint: {p: 0.1, i: 0.001, d: 0.00002}
+          right_rim_four_joint: {p: 0.1, i: 0.001, d: 0.00002}
+
+          encoder_one_joint: {p: 0, i: 0, d: 0}
+          encoder_two_joint: {p: 0, i: 0, d: 0}
+          encoder_three_joint: {p: 0, i: 0, d: 0}
