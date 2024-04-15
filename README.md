@@ -1,6 +1,6 @@
 # SLAM and Autonomous Navigation using ROS and Mecanum Drive
 
-![Robot in Action](https://github.com/Rajeev-Gupta555/MECANUM_DRIVE/blob/Upload-images-for-user-guide/images/mecanum1.png)
+![Robot in Action](https://github.com/rajeev-gupta-bashrc/MECANUM_DRIVE/blob/Upload-images-for-user-guide/images/mecanum1.png)
 
 Welcome to the **SLAM and Autonomous Navigation using ROS and Mecanum Drive** project repository! This project demonstrates the integration of Simultaneous Localization and Mapping (SLAM) techniques with the powerful ROS `move_base` package, enabling autonomous navigation for a robot equipped with a 4-wheeled Mecanum Drive system. The project also incorporates Mecanum kinematics to achieve precise and omnidirectional movement, allowing the robot to traverse complex environments effortlessly.
 
@@ -80,10 +80,10 @@ Your map's image and `.yaml` file should be saved in the `maps` folder. If you w
 
 ## Mecanum Kinematics
 Mecanum wheels, also known as Ilon wheels or Swedish wheels, were invented in 1973 by Bengt Ilon, a Swedish engineer. They are a common type of omnidirectional wheel design. In this design, a series of free-moving rollers are attached to the hub at a 45° angle around the circumference.
-![Robot in Action](https://github.com/Rajeev-Gupta555/MECANUM_DRIVE/blob/Upload-images-for-user-guide/images/mecanum_kinematics.png)
+![Robot in Action](https://github.com/rajeev-gupta-bashrc/MECANUM_DRIVE/blob/Upload-images-for-user-guide/images/mecanum_kinematics.png)
 
 ### Four Mecanum Omnidirectional Solution
-![Robot in Action](https://github.com/Rajeev-Gupta555/MECANUM_DRIVE/blob/Upload-images-for-user-guide/images/mecanum_matrix.png)
+![Robot in Action](https://github.com/rajeev-gupta-bashrc/MECANUM_DRIVE/blob/Upload-images-for-user-guide/images/mecanum_matrix.png)
 
 ## Contributing
 ---
