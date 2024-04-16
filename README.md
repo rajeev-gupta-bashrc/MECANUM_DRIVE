@@ -86,8 +86,8 @@ Mecanum wheels, also known as Ilon wheels or Swedish wheels, were invented in 19
 ![Robot in Action](https://github.com/rajeev-gupta-bashrc/MECANUM_DRIVE/blob/Upload-images-for-user-guide/images/mecanum_matrix.png)
 
 ### Simulation results:
-![Robot in Action](https://github.com/rajeev-gupta-bashrc/MECANUM_DRIVE/blob/Upload-images-for-user-guide/images/mecanum_rviz.gif)
-![Robot in Action](https://github.com/rajeev-gupta-bashrc/MECANUM_DRIVE/blob/Upload-images-for-user-guide/images/mecanum_gazebo.gif)
+![Robot in Action](https://github.com/rajeev-gupta-bashrc/MECANUM_DRIVE/blob/main/images/mecanum_rviz.gif)
+![Robot in Action](https://github.com/rajeev-gupta-bashrc/MECANUM_DRIVE/blob/main/images/mecanum_gazebo.gif)
 
 ## Contributing
 ---
